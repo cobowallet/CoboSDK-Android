@@ -25,6 +25,7 @@ CoboSDK.getInstance().initialize(this);
 
 在你的应用package下新建一个名为`coboapi`的package，并在`coboapi`包下新建一个名为`CBEntryActivity`的Activity。
 ![添加Entry Activity](Docs/entry-activity.png)
+
 并在AndroidManifest.xml文件中为```CBEntryActivity```加上```android:exported="true"```和```android:launchMode="singleTask"```属性，例如：
 ```xml
 <activity
