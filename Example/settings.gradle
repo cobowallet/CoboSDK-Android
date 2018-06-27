@@ -1,1 +1,1 @@
-include ':app', ':cobo-sdk'
+include ':app'
