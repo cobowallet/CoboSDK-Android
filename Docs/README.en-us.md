@@ -1,32 +1,30 @@
+
 # CoboSDK-Android
-CoboSDK帮助开发者通过[Cobo钱包](https://cobo.com/)进行ethereum交易的签名和发送。
-DApp开发者可以使用CoboSDK获取用户的ethereum账户地址，完成消息的签名和校验，发起交易、调用智能合约以及广播签名后的交易数据。从而省去了开发者自行实现用户私钥管理和钱包功能的工作。
+CoboSDK help develpers sign and broadcast ethereum transactions using [Cobo Wallet](https://cobo.com/).
+Dapp developers can use CoboSDK to get user's ethereum addresses, sign messages, validate the signature, send transaction and call contract. Without the needs of developing private key management and wallet functions.
 
-*其他语言：[English](Docs/README.en-us.md)*
+## Get Started
 
-## 接入CoboSDK
-接入CoboSDK需要如下几个步骤：
-
-### 添加依赖
-打开```build.gradle```文件，在```dependencies```中添加：
+### Add dependency
+In ```build.gradle``` file，add the following line in ```dependencies```:
 ```groovy
 implementation 'com.cobo:sdk:1.0'
 ```
 
-### 初始化CoboSDK
-调用CoboSDK的```initialize```方法对SDK进行初始化：
+### Initialize CoboSDK
 ```java
 CoboSDK.getInstance().initialize(this);
 ```
 
-### 接收返回结果
- 1. 添加`CBEntryActivity`
+### Handling callbacks
+ 1. Add `CBEntryActivity`
 
-在你的应用package下新建一个名为`coboapi`的package，并在`coboapi`包下新建一个名为`CBEntryActivity`的Activity。
+Create a `coboapi` package under your application package. Then create a new android activity named `CBEntryActivity` in `coboapi` package.
 
-![添加Entry Activity](Docs/entry-activity.png)
+![Add Entry Activity](entry-activity.png)
 
-在AndroidManifest.xml文件中为```CBEntryActivity```加上```android:exported="true"```和```android:launchMode="singleTask"```属性，例如：
+Add ```android:exported="true"``` and ```android:launchMode="singleTask"``` properties to ```CBEntryActivity``` in AndroidManifest.xml.
+
 ```xml
 <activity
     android:name=".coboapi.CBEntryActivity"
@@ -34,7 +32,7 @@ CoboSDK.getInstance().initialize(this);
     android:launchMode="singleTask" />
 ```
 
- 2. 实现`CBEntryActivity`的`onCreate`方法
+ 2. Implement `onCreate` method in `CBEntryActivity`
 
 ```java
 @Override  
@@ -48,9 +46,9 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-## 使用SDK
+## Usage
 
-### 签名消息
+### Sign message
 ```java
 final String message = "Hello Cobo!";
 CoboSDK.getInstance().signMessage(message, new SignMessageAction.ResultHandler() {
@@ -68,7 +66,7 @@ CoboSDK.getInstance().signMessage(message, new SignMessageAction.ResultHandler()
 }, this);
 ```
 
-### 发送交易
+### Send transaction
 ```java
 BigInteger gasPrice = new BigInteger("1000000000"); // 1 Gwei
 BigInteger gasLimit = new BigInteger("21000");
@@ -89,4 +87,4 @@ CoboSDK.getInstance().sendTransaction(tx, from, new SignTransactionAction.Result
 }, this);
 ```
 
-更多功能使用请参考```Example```工程。
+For more use cases please refer to the  ```Example``` project.
