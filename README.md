@@ -5,15 +5,10 @@ DApp开发者可以使用CoboSDK获取用户的ethereum账户地址，完成消�
 ## 接入CoboSDK
 接入CoboSDK需要如下几个步骤：
 
-### 导入.AAR
-clone或下载CoboSDK的repository后，在AndroidStudio的菜单中选择：File -> New -> New Module... -> Import .JAR/.AAR Package，选择下载的cobo-sdk.aar后点击完成。
-
 ### 添加依赖
 打开```build.gradle```文件，在```dependencies```中添加：
 ```groovy
-implementation project(':cobo-sdk')
-implementation 'com.google.code.gson:gson:2.8.4'
-implementation 'org.web3j:core:3.3.1-android'
+implementation 'com.cobo:sdk:1.0'
 ```
 
 ### 初始化CoboSDK
